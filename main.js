@@ -1,6 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
     const numbersContainer = document.querySelector('.lotto-numbers');
+    const themeBtn = document.getElementById('theme-btn');
+    const body = document.body;
+
+    // 테마 설정 불러오기
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', savedTheme);
+    themeBtn.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+    // 테마 토글 핸들러
+    themeBtn.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeBtn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+    });
 
     const getNumberColor = (number) => {
         if (number <= 10) return 'linear-gradient(135deg, #FFD700, #FFA500)'; // Gold
