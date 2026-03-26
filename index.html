@@ -39,6 +39,10 @@
         <section class="comment-section">
             <div id="disqus_thread"></div>
             <script>
+                var disqus_config = function () {
+                    this.page.url = window.location.href;  
+                    this.page.identifier = window.location.pathname; 
+                };
                 (function() { // DON'T EDIT BELOW THIS LINE
                 var d = document, s = d.createElement('script');
                 s.src = 'https://productvuilder.disqus.com/embed.js';

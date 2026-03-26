@@ -26,13 +26,15 @@ body {
     font-family: 'Pretendard', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
+    padding: 40px 0;
     background: var(--bg-gradient);
-    overflow: hidden;
+    overflow-y: auto;
     position: relative;
     transition: background 0.3s ease;
+    box-sizing: border-box;
 }
 
 body::before {
